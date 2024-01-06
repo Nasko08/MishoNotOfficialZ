@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
-    public static Transform[] zombita;
-    private void Awake()
+    public static Transform[] points;
+    void Awake()
     {
-        poin    
-        for (int i = 0; i < point.Lenght;i++) 
+        
+        points = new Transform[transform.childCount];
+        for (int i = 0; i < points.Length; i++)
         {
-
+            points[i] = transform.GetChild(i);
         }
-
 
     }
 
