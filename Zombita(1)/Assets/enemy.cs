@@ -19,14 +19,21 @@ public class enemy : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWaypoint();
         }
     }
     void GetNextWaypoint()
     {
-        wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
+        if (waypoint < Waypoints.points.Length - 1)
+        {
+            waypoint++;
+            target = Waypoints.points[waypoint];
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
